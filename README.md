@@ -1,6 +1,27 @@
-# Activity Management Application API
+# Youturn : Rotation app API
 
-- A Symfony 6.4 REST API that enables the management of group rotations during multi-stand activities.
+Team rotation management application that lets you create activities and stands, assign teams to stands and manage the progress of a game.
+
+## Technologies
+
+---
+
+- Apache
+- PHP ≤ 8.2
+- MySQL
+- Symfony 6.4
+
+## Author
+
+---
+
+**Jonathan Loré**
+
+Github :  https://github.com/JoAnisky
+
+Website : https://www.jonathanlore.fr
+
+## Project recovery and local launch
 
 Clone this project using
 
@@ -14,11 +35,11 @@ Navigate into the folder
   cd rotation-app-api
 ```
 
-## Setting up the application locally without Docker
+### Setting up the application locally without Docker
 
 ---
 
-- Apache server and PHP 8.1 required
+- Apache server and PHP ≤ 8.2 required
 
 ### 1 - Install dependencies
 

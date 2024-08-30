@@ -16,7 +16,15 @@ class JWTAuthenticatorService
         $this->jwtEncoder = $jwtEncoder;
     }
 
-    public function authenticate(Request $request, array $requiredRoles = ['ROLE_ADMIN', 'ROLE_GAMEMASTER'])
+    /**
+     * Authenticates a user based on JWT and CSRF tokens, and checks for required roles.
+     *
+     * @param Request $request
+     * @param array $requiredRoles Roles required for accessing the route. Default is ['ROLE_ADMIN'].
+     * @throws AccessDeniedException If the user does not have the required roles or tokens are missing/mismatched.
+     * @throws AuthenticationException If the JWT token is invalid.
+     */
+    public function authenticate(Request $request, array $requiredRoles = ['ROLE_ADMIN'])
     {
 
         if (!$request->cookies || !$request->cookies->get('access_token')) {

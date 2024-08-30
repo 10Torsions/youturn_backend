@@ -32,4 +32,4 @@ services:
 
     App\Service\JWTAuthenticatorService:
         arguments:
-            $jwtEncoder: '@lexik_jwt_authentication.encoder.default'
+            $jwtEncoder: '@lexik_jwt_authentication.encoder.lcobucci'

@@ -3,3 +3,7 @@ lexik_jwt_authentication:
     public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
     pass_phrase: '%env(JWT_PASSPHRASE)%'
     token_ttl: 7200 # in seconds, set to 2 hours
+    
+    encoder:
+        service: lexik_jwt_authentication.encoder.lcobucci
+

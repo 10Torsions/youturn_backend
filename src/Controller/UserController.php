@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotation\Secure;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,6 +37,7 @@ class UserController extends AbstractController
      * @return JsonResponse
      */
     #[Route('/', name: 'user', methods: ['GET'])]
+    #[Secure(roles: ["ROLE_ADMIN"])]
     public function getUsers(UserRepository $userRepository, SerializerInterface $serializer): JsonResponse
     {
         $usersList = $userRepository->findAll();
@@ -56,6 +58,7 @@ class UserController extends AbstractController
      * @return JsonResponse
      */
     #[Route('/{id}', name: 'detail_user', methods: ['GET'])]
+    #[Secure(roles: ["ROLE_ADMIN"])]
     public function getOneUser(User $user, UserRepository $userRepository, SerializerInterface $serializer): JsonResponse
     {
         $currentUser = $userRepository->find($user);
@@ -77,6 +80,7 @@ class UserController extends AbstractController
      * @return JsonResponse
      */
     #[Route('/{id}', name: 'delete_user', methods: ['DELETE'])]
+    #[Secure(roles: ["ROLE_ADMIN"])]
     public function deleteUser(User $user, EntityManagerInterface $em): JsonResponse
     {
 
@@ -103,6 +107,7 @@ class UserController extends AbstractController
      * @return JsonResponse
      */
     #[Route('/', name: 'create_user', methods: ['POST'])]
+    #[Secure(roles: ["ROLE_ADMIN"])]
     public function createUser(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, ValidatorInterface $validator): JsonResponse
     {
         // Deserialize $request->getcontent
@@ -149,6 +154,7 @@ class UserController extends AbstractController
      * @return JsonResponse
      */
     #[Route('/{id}', name: 'update_user', methods: ['PUT'])]
+    #[Secure(roles: ["ROLE_ADMIN"])]
     public function updateUser(Request $request, User $currentUser, SerializerInterface $serializer, EntityManagerInterface $em, ValidatorInterface $validator): JsonResponse
     {
         /* The request body is deserialized into an existing User object ($currentUser) using the OBJECT_TO_POPULATE option.
