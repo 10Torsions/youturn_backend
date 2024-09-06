@@ -26,7 +26,7 @@ Website : https://www.jonathanlore.fr
 Clone this project using
 
 ```shell
-git clone git@github.com:JoAnisky/rotation-app-api.git
+git clone git@github.com:10Torsions/youturn_backend.git
 ```
 
 Navigate into the folder
